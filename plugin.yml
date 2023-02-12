@@ -1,14 +1,14 @@
-name: RemoveElytra
-main: org.claniel.RemoveElytra.RemoveElytra
+name: ElytraGuard
+main: org.claniel.ElytraGuard.ElytraGuard
 version: 1.0
 api-version: 1.13
 permissions:
-  removeelytra.elytrafly:
+  elytraguard.elytrafly:
     description: This permission allow to player to fly with elytra. This permission work if actived from config
     default: op
-  removeelytra.use.elytra:
+  elytraguard.use.elytra:
     description: This permission allow to users to use elytra without forbidden. This permission work if actived from config
     default: op
-  removeelytra.autoremoveelytra:
+  elytraguard.autoremoveelytra:
     description: This permission allow to users to use elytra without remove elytra from invsee. This permission work if actived from config
     default: op

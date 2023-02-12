@@ -1,16 +1,16 @@
-package org.claniel.RemoveElytra;
+package org.claniel.ElytraGuard;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import org.claniel.RemoveElytra.Config.Config;
-import org.claniel.RemoveElytra.Listeners.PreventClickPlaceElytra;
-import org.claniel.RemoveElytra.Listeners.PreventElytraFly;
-import org.claniel.RemoveElytra.Listeners.RemoveElytraFromInventory;
+import org.claniel.ElytraGuard.Config.Config;
+import org.claniel.ElytraGuard.Listeners.PreventClickPlaceElytra;
+import org.claniel.ElytraGuard.Listeners.PreventElytraFly;
+import org.claniel.ElytraGuard.Listeners.RemoveElytraFromInventory;
 
-public class RemoveElytra extends JavaPlugin {
-	public static final String PLUGIN_NAME="RemoveElytra";
+public class ElytraGuard extends JavaPlugin {
+	public static final String PLUGIN_NAME="ElytraGuard";
 	protected Config configManager=null;
 	
-	protected static RemoveElytra pluginInstance=null;
+	protected static ElytraGuard pluginInstance=null;
 	  @Override
 	  public void onEnable() {
 	    // This method is called when the plugin is enabled
@@ -46,7 +46,7 @@ public class RemoveElytra extends JavaPlugin {
     getLogger().info("RemoveElytra has been disabled.");
   }
   
-  public static RemoveElytra getPluginInstance() {
+  public static ElytraGuard getPluginInstance() {
 	  return pluginInstance;
   }
 

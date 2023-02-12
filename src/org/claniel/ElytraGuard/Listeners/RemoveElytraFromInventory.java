@@ -1,4 +1,4 @@
-package org.claniel.RemoveElytra.Listeners;
+package org.claniel.ElytraGuard.Listeners;
 
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
@@ -41,7 +41,7 @@ public class RemoveElytraFromInventory implements Listener{
 	}
 	
 	protected boolean hasPermission(Player p) {
-		return p.hasPermission("removeelytra.autoremoveelytra");
+		return p.hasPermission("elytraguard.autoremoveelytra");
 	}
 
 }

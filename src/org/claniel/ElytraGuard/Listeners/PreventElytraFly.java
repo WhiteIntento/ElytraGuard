@@ -1,11 +1,10 @@
-package org.claniel.RemoveElytra.Listeners;
+package org.claniel.ElytraGuard.Listeners;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
-import org.claniel.RemoveElytra.RemoveElytra;
 
 public class PreventElytraFly implements Listener{
 
@@ -14,7 +13,7 @@ public class PreventElytraFly implements Listener{
 		//This check entity if player
 		if(event.getEntity() instanceof Player) {
 			Player p= (Player) event.getEntity();
-			if(p.hasPermission("removeelytra.elytrafly")) {
+			if(p.hasPermission("elytraguard.elytrafly")) {
 				return;
 			}
 			//тази проверка проверява дали се лети с метода event.isGliding()  и дали на потребителя има сложен elytra в inventory

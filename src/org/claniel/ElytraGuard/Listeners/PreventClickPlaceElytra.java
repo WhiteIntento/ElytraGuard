@@ -1,18 +1,14 @@
-package org.claniel.RemoveElytra.Listeners;
+package org.claniel.ElytraGuard.Listeners;
 
-import java.util.HashSet;
 
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * This class prevent usage righ click elytra for place in youself
@@ -64,7 +60,7 @@ public class PreventClickPlaceElytra implements Listener {
 	}
 	
 	protected boolean hasPermission(Player p) {
-		return p.hasPermission("removeelytra.use.elytra");
+		return p.hasPermission("elytraguard.use.elytra");
 	}
 	
 

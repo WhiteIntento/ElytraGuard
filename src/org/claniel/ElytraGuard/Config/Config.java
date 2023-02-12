@@ -1,9 +1,9 @@
-package org.claniel.RemoveElytra.Config;
+package org.claniel.ElytraGuard.Config;
 
 import java.io.File;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.claniel.RemoveElytra.RemoveElytra;
+import org.claniel.ElytraGuard.ElytraGuard;
 
 
 public class Config {
@@ -15,10 +15,10 @@ public class Config {
 	}
 
 	public void createConfigIfNotExists() {
-		File c=new File("plugins" + File.separator + RemoveElytra.PLUGIN_NAME + File.separator + "config.yml");
+		File c=new File("plugins" + File.separator + ElytraGuard.PLUGIN_NAME + File.separator + "config.yml");
 		if(!c.exists()) {
 			this.defineDefaultConfiguration();
-			RemoveElytra.getPluginInstance().saveConfig();
+			ElytraGuard.getPluginInstance().saveConfig();
 		}
 	}
 	
