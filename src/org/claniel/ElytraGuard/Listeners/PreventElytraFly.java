@@ -16,8 +16,8 @@ public class PreventElytraFly implements Listener{
 			if(p.hasPermission("elytraguard.elytrafly")) {
 				return;
 			}
-			//тази проверка проверява дали се лети с метода event.isGliding()  и дали на потребителя има сложен elytra в inventory
-			// с p.getInventory().getChestplate().getType() == Material.ELYTRA(проверявадали материала слложен в chestplace е elytra)
+			// This check verifies whether the player is flying using the event.isGliding() method and whether the player has an Elytra in their inventory.
+			// It checks this by checking if the material in the chestplace is ELYTRA using p.getInventory().getChestplate().getType() == Material.ELYTRA.
 			if (event.isGliding() && p.getInventory().getChestplate().getType() == Material.ELYTRA) {
 		        event.setCancelled(true);  //stop event
 		    }
