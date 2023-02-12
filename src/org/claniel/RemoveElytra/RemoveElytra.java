@@ -43,7 +43,7 @@ public class RemoveElytra extends JavaPlugin {
 
   public void onDisable() {
     // This method is called when the plugin is disabled
-    getLogger().info("BasicPlugin has been disabled.");
+    getLogger().info("RemoveElytra has been disabled.");
   }
   
   public static RemoveElytra getPluginInstance() {
