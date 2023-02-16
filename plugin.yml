@@ -1,7 +1,10 @@
 name: ElytraGuard
 main: org.claniel.ElytraGuard.ElytraGuard
-version: 1.0
+version: 1.0.1
 api-version: 1.13
+commands:
+  reload:
+    description: This command reload plugin
 permissions:
   elytraguard.elytrafly:
     description: This permission allow to player to fly with elytra. This permission work if actived from config
@@ -11,4 +14,7 @@ permissions:
     default: op
   elytraguard.autoremoveelytra:
     description: This permission allow to users to use elytra without remove elytra from invsee. This permission work if actived from config
+    default: op
+  elytraguard.reload:
+    description: This permission allow to reload plugin
     default: op
