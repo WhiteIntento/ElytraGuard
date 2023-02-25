@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.claniel.ElytraGuard.Utils.WorldUtils;
 
 /**
  * This class prevent usage righ click elytra for place in youself
@@ -19,6 +20,9 @@ public class PreventClickPlaceElytra implements Listener {
 
 	@EventHandler
 	  public void onPlayerInteract(PlayerInteractEvent event) {
+		if(WorldUtils.isDisabled(event.getPlayer().getWorld().getName())) {
+			return;
+		}
 		if(this.hasPermission(event.getPlayer())) {
 			return;
 		}
@@ -35,6 +39,9 @@ public class PreventClickPlaceElytra implements Listener {
 		HumanEntity he = event.getWhoClicked();
 		if(he instanceof Player) {
 			Player player = (Player)he;
+			if(WorldUtils.isDisabled(player.getWorld().getName())) {
+				return;
+			}
 			if(this.hasPermission(player)) {
 				return;
 			}
@@ -50,6 +57,9 @@ public class PreventClickPlaceElytra implements Listener {
 	
 	@EventHandler
 	public void onPlayerPicupItem(PlayerPickupItemEvent event) {
+		if(WorldUtils.isDisabled(event.getPlayer().getWorld().getName())) {
+			return;
+		}
 		if(this.hasPermission(event.getPlayer())) {
 			return;
 		}

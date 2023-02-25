@@ -1,6 +1,8 @@
 package org.claniel.ElytraGuard.Config;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.claniel.ElytraGuard.ElytraGuard;
@@ -26,6 +28,9 @@ public class Config {
 		config.addDefault("DISABLE_ELYTRA_FLY", true);
 		config.addDefault("DISABLE_ELYTRA_USE", false);
 		config.addDefault("IF_USE_ELYTRA_REMOVE_FROM_INVENTORY", false);
+		List<String> worlds = new ArrayList<String>();
+		worlds.add("world_the_end");
+		config.addDefault("DISABLED_WORLDS", worlds);
 		this.config.options().copyDefaults(true);
 	}
 }

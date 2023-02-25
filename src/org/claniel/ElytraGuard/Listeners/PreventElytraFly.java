@@ -5,14 +5,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
+import org.claniel.ElytraGuard.Utils.WorldUtils;
 
 public class PreventElytraFly implements Listener{
 
 	@EventHandler
 	public void onEntityToggleGlide(EntityToggleGlideEvent event) {
+		
 		//This check entity if player
 		if(event.getEntity() instanceof Player) {
 			Player p= (Player) event.getEntity();
+			if(WorldUtils.isDisabled(p.getWorld().getName())) {
+				return;
+			}
 			if(p.hasPermission("elytraguard.elytrafly")) {
 				return;
 			}
