@@ -28,6 +28,8 @@ public class Config {
 		config.addDefault("DISABLE_ELYTRA_FLY", true);
 		config.addDefault("DISABLE_ELYTRA_USE", false);
 		config.addDefault("IF_USE_ELYTRA_REMOVE_FROM_INVENTORY", false);
+		config.addDefault("DEFAULT_LOCALE", "en");
+		config.addDefault("MESSAGE_TITLE", "&e[&5ElytraGuard&e] ");
 		List<String> worlds = new ArrayList<String>();
 		worlds.add("world_the_end");
 		config.addDefault("DISABLED_WORLDS", worlds);

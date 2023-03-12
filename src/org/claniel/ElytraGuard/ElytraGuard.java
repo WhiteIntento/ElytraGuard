@@ -1,12 +1,16 @@
 package org.claniel.ElytraGuard;
 
+import java.io.IOException;
+
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.claniel.ElytraGuard.Commands.Reload;
 import org.claniel.ElytraGuard.Config.Config;
+import org.claniel.ElytraGuard.Config.DefineDefaultLocales;
 import org.claniel.ElytraGuard.Listeners.PreventClickPlaceElytra;
 import org.claniel.ElytraGuard.Listeners.PreventElytraFly;
 import org.claniel.ElytraGuard.Listeners.RemoveElytraFromInventory;
+
 
 
 public class ElytraGuard extends JavaPlugin {
@@ -18,14 +22,21 @@ public class ElytraGuard extends JavaPlugin {
 	  public void onEnable() {
 	    // This method is called when the plugin is enabled
 	    
-	    this._startPlugin();
+	    try {
+			this._startPlugin();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	  }
 	  
 	  
-	  public void _startPlugin() {
+	  public void _startPlugin() throws IOException {
 		  pluginInstance=this;
 		  this.configManager= new Config(this.getConfig());
 		  this.configManager.createConfigIfNotExists();
+		  Directories.createDirectoriesIfNotExists();
+		  DefineDefaultLocales.defineEnglishLocales();
 		  this.getCommand("reload").setExecutor(new Reload());
 		  this.registerListeners();
 		  getLogger().info("RemoveElytra has been enabled.");

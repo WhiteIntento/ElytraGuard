@@ -9,7 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.claniel.ElytraGuard.Utils.PlayerUtil;
 import org.claniel.ElytraGuard.Utils.WorldUtils;
+
 
 /**
  * This class prevent usage righ click elytra for place in youself
@@ -28,13 +30,14 @@ public class PreventClickPlaceElytra implements Listener {
 		}
 		if(event.getItem() != null) {
 			if(event.getItem().getType().name().equals("ELYTRA")) {
+				PlayerUtil.sendLocaleMessage(event.getPlayer(), "cannot_use_elytra");
 		    	event.setCancelled(true);
 		    }
 		}
 	 }
 	
 	@EventHandler
-	public void onInventoryClicn(InventoryClickEvent event) {
+	public void onInventoryClick(InventoryClickEvent event) {
 		
 		HumanEntity he = event.getWhoClicked();
 		if(he instanceof Player) {
@@ -48,7 +51,8 @@ public class PreventClickPlaceElytra implements Listener {
 			if(event.getCurrentItem() != null) {
 				Material item = event.getCurrentItem().getType();
 				if(item.name().equals("ELYTRA")) {
-					event.setCancelled(false);
+					PlayerUtil.sendLocaleMessage(player, "cannot_use_elytra");
+					event.setCancelled(true);
 					player.getInventory().remove(Material.ELYTRA);
 				}
 			}
@@ -56,7 +60,7 @@ public class PreventClickPlaceElytra implements Listener {
 	}
 	
 	@EventHandler
-	public void onPlayerPicupItem(PlayerPickupItemEvent event) {
+	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
 		if(WorldUtils.isDisabled(event.getPlayer().getWorld().getName())) {
 			return;
 		}
@@ -65,6 +69,7 @@ public class PreventClickPlaceElytra implements Listener {
 		}
 		String material = event.getItem().getItemStack().getType().name();
 		if(material.equals("ELYTRA")) {
+			PlayerUtil.sendLocaleMessage(event.getPlayer(), "cannot_pickup_elytra");
 			event.setCancelled(true);
 		}
 	}

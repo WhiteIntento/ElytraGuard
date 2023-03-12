@@ -1,5 +1,7 @@
 package org.claniel.ElytraGuard.Commands;
 
+import java.io.IOException;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +19,12 @@ public class Reload implements CommandExecutor  {
 		
 		ElytraGuard.getPluginInstance().reloadConfig();
 		ElytraGuard.getPluginInstance()._stopPlugin();
-		ElytraGuard.getPluginInstance()._startPlugin();
+		try {
+			ElytraGuard.getPluginInstance()._startPlugin();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sender.sendMessage("Plugin has been reloaded successful");
 		return true;
 	}
